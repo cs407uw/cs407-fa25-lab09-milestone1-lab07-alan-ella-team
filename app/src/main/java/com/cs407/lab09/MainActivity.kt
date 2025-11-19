@@ -99,7 +99,7 @@ fun GameScreen(viewModel: BallViewModel) {
         // (Don't forget to add a null check for gravitySensor!)
         if (gravitySensor != null) {
             // ... sensorManager.registerListener ...
-            sensorManager.registerListener(listener, gravitySensor, SensorManager.SENSOR_DELAY_NORMAL)
+            sensorManager.registerListener(listener, gravitySensor, SensorManager.SENSOR_DELAY_GAME)
         }
 
         // onDispose is called when the composable leaves the screen

@@ -43,12 +43,16 @@ class BallViewModel : ViewModel() {
                 // TODO: Calculate the time difference (dT) in seconds
                 // Hint: event.timestamp is in nanoseconds
                  val NS2S = 1.0f / 1000000000.0f
-                 val dT = event.timestamp * NS2S - lastTimestamp * NS2S
+                 val dT = (event.timestamp  - lastTimestamp) * NS2S
 
+                val accScale = 10f
 
                 // TODO: Update the ball's position and velocity
                 // Hint: The sensor's x and y-axis are inverted
-                 currentBall.updatePositionAndVelocity(xAcc = -event.values[1], yAcc = event.values[0], dT = dT)
+                 currentBall.updatePositionAndVelocity(
+                     xAcc = accScale * -event.values[0],
+                     yAcc = accScale * event.values[1],
+                     dT = dT)
 
                 currentBall.checkBoundaries()
 
