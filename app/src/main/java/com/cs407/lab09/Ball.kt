@@ -48,10 +48,11 @@ class Ball(
 
         //Equation 2: l = Z t1 t0 v(τ ) dτ = v0 · (t1 − t0) + 1 6 · (t1 − t0)2 · (3a0 + a1)
         //equation 2 for x-axis
-        val distanceX = velocityX * dT + (1.0f / 6.0f) * (dT * dT) * (3.0f * accX * xAcc)
+        val distanceX = velocityX * dT + (1f / 6f) * dT * dT * (3f * accX + xAcc)
+
 
         //equation 2 for y-axis
-        val distanceY = velocityY * dT + (1.0f / 6.0f) * (dT * dT) * (3.0f * accY * yAcc)
+        val distanceY = velocityY * dT + (1f / 6f) * dT * dT * (3f * accY + yAcc)
 
         //update position
         posX += distanceX
